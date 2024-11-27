@@ -21,6 +21,10 @@ class RiskReward(ebase):
     """
     
     def __init__(self, pc:float, pr:float, rs:float, rr:float, rd:float):
+        if pc<0 or pc>1:
+            raise ValueError("pc must be between 0 and 1")
+        if pr<0 or pr>1:
+            raise ValueError("pr must be between 0 and 1")
         self.pc = pc  # Collapse probability when risky in prosperous
         self.pr = pr  # Recovery probability when cautious in degraded
         self.rs = rs  # Reward for staying prosperous and cautious

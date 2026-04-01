@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyCRLD"
+dynamic = ["version"]
+description = "Collective Reinforcement Learning Dynamics in Python"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "GNUGPL3"}
+authors = [{name = "Wolfram Barfuss", email = "wbarfuss@guni-bonn.de"}]
+keywords = ['Modeling,', 'Collective', 'Behavior,', 'Reinforcement', 'Learning,', 'Multi-Agent', 'Systems']
+classifiers = ["Natural Language :: English", "Intended Audience :: Researchers", "Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
+dependencies = ['fastcore>=1.5.27', 'numpy>=1.21.2', 'jax>=0.3.25', 'jaxlib>=0.3.25', 'matplotlib>=3.4.3', 'pydoe>=0.3.8']
+
+[project.urls]
+Repository = "https://github.com/wbarfuss/pyCRLD"
+Documentation = "https://wbarfuss.github.io/pyCRLD"
+
+[project.entry-points.nbdev]
+pyCRLD = "pyCRLD._modidx:d"
+
+[project.optional-dependencies]
+dev = ['nbdev>=2.3.9']
+
+[tool.setuptools.dynamic]
+version = {attr = "pyCRLD.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pyCRLD*"]
+
+[tool.nbdev]

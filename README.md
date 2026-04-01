@@ -41,9 +41,7 @@ error* $\delta$.
 The key idea of CRLD is to replace the individual sample realizations
 with its strategy average plus a small error term,
 
-$$
-\delta \leftarrow \bar\delta + \epsilon.
-$$
+$$\delta \leftarrow \bar\delta + \epsilon.$$
 
 One can interpret these learning dynamics from a cognitive and an
 engineering perspective. In the limit of a vanishing error term,

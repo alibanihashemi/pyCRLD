@@ -28,11 +28,11 @@ class POstrategybaseJ(aPObaseJ, strategybaseJ):
                  choice_intensities=1, **kwargs):
         self.env = env
         Tt = env.T
-        assert np.allclose(Tt.sum(-1), 1)
+        # Assertions removed: np.allclose on JAX arrays returns a Tracer inside
+        # JAX/numpyro tracing context, which cannot be converted to a Python bool.
         Rt = env.R
         Ot = env.O
         super().__init__(Tt, Rt, Ot, discount_factors, **kwargs)
-        assert np.allclose(env.F, 0), 'PO learning with final states not defined.'
 
         self.alpha = make_variable_vectorJ(learning_rates, self.N)
         self.beta = make_variable_vectorJ(choice_intensities, self.N)

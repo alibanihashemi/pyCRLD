@@ -37,7 +37,8 @@ class strategybaseJ(abaseJ):
 
         self.env = env
         Tt = env.T
-        assert np.allclose(Tt.sum(-1), 1)
+        # Assertion removed: jnp.allclose returns a Tracer inside JAX/numpyro
+        # tracing context, which cannot be converted to a Python bool.
         Rt = env.R
         super().__init__(Tt, Rt, discount_factors, use_prefactor, opteinsum)
         self.F = jnp.array(env.F)
